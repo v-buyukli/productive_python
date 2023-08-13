@@ -8,7 +8,7 @@ packages = [{include = "productive_python"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-pre-commit = "^3.3.3"
+pytest = "^7.4.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.3.3"
