@@ -1,6 +1,5 @@
 import urllib.request
 from collections import OrderedDict
-from collections import OrderedDict as OrderedDictType
 from time import perf_counter
 
 from tabulate import tabulate
@@ -10,7 +9,7 @@ URLS = ['https://www.google.com', 'https://sinoptik.ua', 'https://www.python.org
 
 
 class WebPage:
-    examples: OrderedDictType = OrderedDict()
+    examples: OrderedDict = OrderedDict()
 
     def __init__(self, url):
         self.url = url
