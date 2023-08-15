@@ -1,13 +1,8 @@
-import sys
-from pathlib import Path
 from random import choice, seed
 
 import pytest
 
-from fluent_python.frenchdeck import Card, FrenchDeck, spades_high
-
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from ..fluent_python.frenchdeck import Card, FrenchDeck, spades_high
 
 
 def test_card_creation():
