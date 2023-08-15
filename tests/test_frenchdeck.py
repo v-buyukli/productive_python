@@ -11,12 +11,12 @@ def test_card_creation():
     assert card.suit == 'diamonds'
 
 
-def test_french_deck_length():
+def test_frenchdeck_len():
     deck = FrenchDeck()
     assert len(deck) == 52
 
 
-def test_french_deck_indexing():
+def test_frenchdeck_indexing():
     deck = FrenchDeck()
     first_card = deck[0]
     last_card = deck[-1]
@@ -26,32 +26,32 @@ def test_french_deck_indexing():
     assert last_card.suit == 'hearts'
 
 
-def test_french_deck_choice():
+def test_frenchdeck_choice():
     seed(10)
     deck = FrenchDeck()
     random_card = choice(deck)  # nosec
     assert isinstance(random_card, Card)
 
 
-def test_french_deck_slicing():
+def test_frenchdeck_slicing():
     deck = FrenchDeck()
     sliced_deck = deck[:3]
     assert len(sliced_deck) == 3
 
 
-def test_french_deck_iteration():
+def test_frenchdeck_iteration():
     deck = FrenchDeck()
     for card in deck:
         assert isinstance(card, Card)
 
 
-def test_french_deck_reversed_iteration():
+def test_frenchdeck_reversed():
     deck = FrenchDeck()
     for card in reversed(deck):
         assert isinstance(card, Card)
 
 
-def test_french_deck_contains():
+def test_frenchdeck_contains():
     deck = FrenchDeck()
     hearts_queen = Card('Q', 'hearts')
     not_in_deck = Card('7', 'beasts')
@@ -59,7 +59,7 @@ def test_french_deck_contains():
     assert not_in_deck not in deck
 
 
-def test_french_deck_sorting():
+def test_frenchdeck_sorting():
     deck = FrenchDeck()
     sorted_deck = sorted(deck, key=spades_high)
     assert len(deck) == len(sorted_deck)
