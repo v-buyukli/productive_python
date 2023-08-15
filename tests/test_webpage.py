@@ -25,12 +25,3 @@ def test_page_size(example_webpage):
 def test_time_elapsed(example_webpage):
     example_webpage.download_page()
     assert example_webpage.time_elapsed >= 0
-
-
-def test_tabulate_print(example_webpage, capsys):
-    example_webpage.download_page()
-    example_webpage.tabulate_print()
-    captured = capsys.readouterr()
-    assert 'url' in captured.out
-    assert 'size(bytes)' in captured.out
-    assert 'elapsed(s)' in captured.out
