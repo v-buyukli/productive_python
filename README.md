@@ -7,3 +7,5 @@ a few examples from [*Fluent Python, 2nd edition*](https://github.com/fluentpyth
 with possible additions by me
 - [**webpage_metrics**](https://github.com/v-buyukli/productive_python/tree/main/webpage_metrics):
 some webpage metrics for a given URL
+- [**rock_paper_scissors**](https://github.com/v-buyukli/productive_python/tree/main/rock_paper_scissors):
+rock-paper-scissors game
