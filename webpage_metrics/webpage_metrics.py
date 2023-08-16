@@ -1,6 +1,5 @@
 from tabulate import tabulate
-
-from .webpage import WebPage
+from webpage import WebPage
 
 
 URLS = [

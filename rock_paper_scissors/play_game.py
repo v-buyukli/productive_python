@@ -1,4 +1,4 @@
-from .rock_paper_scissors import Game
+from rps_game import Game
 
 
 if __name__ == '__main__':
