@@ -25,3 +25,7 @@ def test_page_size(example_webpage):
 def test_time_elapsed(example_webpage):
     example_webpage.download_page()
     assert example_webpage.time_elapsed >= 0
+
+
+if __name__ == '__main__':
+    pytest.main()
