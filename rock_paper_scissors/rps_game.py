@@ -5,8 +5,16 @@ class Participant:
         self.choice = ''
 
     def choose(self):
-        self.choice = input(f' \n{self.name}, select rock, scissors or paper: ')
-        print(f'{self.name} selects {self.choice}')
+        valid_choices = ['rock', 'paper', 'scissors']
+
+        while True:
+            self.choice = input(f'\n{self.name}, select rock, scissors, or paper: ').lower()
+            if self.choice in valid_choices:
+                break
+            else:
+                print('Invalid choice. Please select rock, scissors, or paper.')
+
+        print(f'{self.name} selects {self.choice}.')
 
     def to_numerical_choice(self):
         switcher = {'rock': 0, 'paper': 1, 'scissors': 2}
@@ -14,7 +22,7 @@ class Participant:
 
     def increment_point(self):
         self.points += 1
-        print(f'\nRound resulted in a win for {self.name}')
+        print(f'\nRound resulted in a win for {self.name}.')
 
 
 class GameRound:
@@ -24,12 +32,13 @@ class GameRound:
         p1.choose()
         p2.choose()
         result = self.compare_choices(p1, p2)
+
         if result > 0:
             p1.increment_point()
         elif result < 0:
             p2.increment_point()
         else:
-            print('\nRound resulted in a draw')
+            print('\nRound resulted in a draw.')
 
     def compare_choices(self, p1, p2):
         return self.rules[p1.to_numerical_choice()][p2.to_numerical_choice()]
@@ -40,7 +49,7 @@ class Game:
         self.end_game = False
         self.p1 = Participant('Player1')
         self.p2 = Participant('Player2')
-        Game.start(self)
+        self.start()
 
     def start(self):
         while not self.end_game:
@@ -48,24 +57,20 @@ class Game:
             self.check_end_condition()
 
     def check_end_condition(self):
-        answer = input('\nContinue game y/n: ')
-        if answer == 'y':
-            GameRound(self.p1, self.p2)
-            self.check_end_condition()
-        else:
-            print(
-                '\nGame ended, {p1name} {p1points}:{p2points} {p2name}'.format(
-                    p1name=self.p1.name, p1points=self.p1.points, p2name=self.p2.name, p2points=self.p2.points
-                )
-            )
-            self.determine_winner()
+        answer = input('\nContinue game? (y/n): ')
+        if answer.lower() == 'n':
             self.end_game = True
+            self.print_results()
+
+    def print_results(self):
+        print(f'\nGame ended, {self.p1.name} {self.p1.points}:{self.p2.points} {self.p2.name}')
+        self.determine_winner()
 
     def determine_winner(self):
         if self.p1.points > self.p2.points:
-            result_string = f'Winner is {self.p1.name}'
+            result_string = f'Winner is {self.p1.name}.'
         elif self.p1.points < self.p2.points:
-            result_string = f'Winner is {self.p2.name}'
+            result_string = f'Winner is {self.p2.name}.'
         else:
-            result_string = "It's a draw"
+            result_string = "It's a draw."
         print(result_string)
