@@ -2,7 +2,7 @@ from random import choice, seed
 
 import pytest
 
-from ..fluent_python.frenchdeck import Card, FrenchDeck, spades_high
+from ..fluent_python.deck.frenchdeck import Card, FrenchDeck, spades_high
 
 
 def test_card_creation():
